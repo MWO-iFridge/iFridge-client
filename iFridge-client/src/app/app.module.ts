@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { NavBarComponent } from './component/nav-bar/nav-bar.component';
 import { CreateRecipeComponent } from './create-recipe/create-recipe.component';
 import { CalculatorComponent } from './calculator/calculator.component';
+import { FooterComponent } from './component/footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavBarComponent,
     CreateRecipeComponent,
-    CalculatorComponent
+    CalculatorComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

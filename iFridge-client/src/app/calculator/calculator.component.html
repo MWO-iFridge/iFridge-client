@@ -1,0 +1,23 @@
+
+
+<input [(ngModel)]="weight" type="number">
+<p>Waga</p>
+<input [(ngModel)]="height" type="number">
+<p>Wzrost w cm</p>
+<input [(ngModel)]="age" type="number">
+<p>Wiek</p>
+
+Mężczyzna
+<input [(ngModel)]="gender" type="radio" name="gender" value="male">
+Kobieta
+<input [(ngModel)]="gender" type="radio" name="gender" value="female">
+<p>Płeć</p>
+
+
+Duża
+<input [(ngModel)]="activity" type="radio" name="activity" value="high">
+Mała
+<input [(ngModel)]="activity" type="radio" name="activity" value="low">
+<p>Aktywność</p>
+
+<p>By utrzymać wagę musisz spożywać około {{calculateCalories()}} kalorii</p>

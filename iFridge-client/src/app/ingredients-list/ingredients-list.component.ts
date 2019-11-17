@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from '../data.service';
-import { Observable } from 'rxjs';
+import {RestApiService} from "../services/rest-api.service";
 
 @Component({
   selector: 'app-ingredients-list',
@@ -9,15 +8,12 @@ import { Observable } from 'rxjs';
 })
 export class IngredientsListComponent implements OnInit {
 
-
   ingredients$: Object;
 
-  constructor(private data: DataService) { }
+  constructor(private api: RestApiService) { }
 
   ngOnInit() {
-    this.data.getIngredients().subscribe(
-      data => this.ingredients$ = data
-    )
+    this.api.getAllIngredients().subscribe(data => this.ingredients$ = data);
   }
 
 }

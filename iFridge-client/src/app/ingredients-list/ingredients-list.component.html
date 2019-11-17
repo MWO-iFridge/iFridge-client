@@ -5,16 +5,14 @@
 <table class="table table-striped">
     <thead>
         <tr>
+          <th>Id</th>
           <th>Name</th>
-          <th>Email</th>
-          <th>Username</th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let ingredient of ingredients$">
+          <td>{{ingredient.id}}</td>
           <td>{{ingredient.name}}</td>
-          <td>{{ingredient.email}}</td>
-          <td>{{ingredient.username}}</td>
         </tr>
     </tbody>
 </table>

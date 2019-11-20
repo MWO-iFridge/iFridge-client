@@ -1,1 +1,9 @@
-<p>create-recipe works!</p>
+<form (ngSubmit)="onSubmit()" #createRecipe="ngForm">
+    <div class="form-group">
+        <input type="text" [(ngModel)]="recipe.name" class="form-control" id="name" name="name">
+        <p>Nazwa</p>
+        <input type="text" [(ngModel)]="recipe.description" class="form-control" id="description" name="description">
+        <p>Opis</p>
+        <button type="submit" class="btn btn-info">Dodaj przepis</button>
+    </div>
+</form>

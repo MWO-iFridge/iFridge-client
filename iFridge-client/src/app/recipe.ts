@@ -1,0 +1,6 @@
+export class Recipe {
+    id: string;
+    name: string;
+    description: string; 
+    calories: number;
+}

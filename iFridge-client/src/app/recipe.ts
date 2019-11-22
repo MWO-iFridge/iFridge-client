@@ -1,6 +1,11 @@
+import { Time } from '@angular/common';
+
 export class Recipe {
-    id: string;
-    name: string;
-    description: string; 
-    calories: number;
+    id: number;
+    course: string;
+    foodCategory: string;
+    recipeName: string;
+    recipeDescription: string;
+    prepTime: Time;
+    kcal: number;
 }

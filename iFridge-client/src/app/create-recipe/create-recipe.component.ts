@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Recipe } from '../recipe';
-import { RecipeServiceService } from '../recipe-service.service';
+import { RestApiService } from '../services/rest-api.service';
 
 @Component({
   selector: 'app-create-recipe',
@@ -11,12 +11,12 @@ export class CreateRecipeComponent  {
 
   recipe: Recipe;
 
-  constructor(private recipeService: RecipeServiceService) {
+  constructor(private service: RestApiService) {
     this.recipe = new Recipe();
    }
 
    onSubmit() {
-     this.recipeService.save(this.recipe);
+     this.service.addRecipe(this.recipe);
    }
 
 }

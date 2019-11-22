@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import { Recipe } from '../recipe';
 
 @Injectable({
   providedIn: 'root'
@@ -16,5 +17,9 @@ export class RestApiService {
 
   public getAllIngredients() {
     return this.httpClient.get(this.BACKEND_URL + '/ingredient');
+  }
+
+  public addRecipe(recipe: Recipe) {
+    return this.httpClient.post<Recipe>(this.BACKEND_URL + '/recipe', recipe);
   }
 }

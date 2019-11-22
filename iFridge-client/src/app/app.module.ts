@@ -15,6 +15,8 @@ import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { RegisterComponent } from './register/register.component';
 import { RecipeListComponent } from './recipe-list/recipe-list.component';
+import { AddNewIngredientComponent } from './add-new-ingredient/add-new-ingredient.component';
+import { IngredientService } from './services/ingredient-service.service';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,8 @@ import { RecipeListComponent } from './recipe-list/recipe-list.component';
     LoginComponent,
     DashboardComponent,
     RegisterComponent,
-    RecipeListComponent
+    RecipeListComponent,
+    AddNewIngredientComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +39,7 @@ import { RecipeListComponent } from './recipe-list/recipe-list.component';
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [],
+  providers: [IngredientService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

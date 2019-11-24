@@ -1,7 +1,7 @@
 <div class="row">
 	<div class="col-md-4 col-md-offset-4" style="padding-top:100px;">
 		<h2>Login</h2>
-		<form [formGroup]="loginForm" (ngSubmit)="submit()">
+		<form [formGroup]="loginForm" (ngSubmit)="logIn()">
 			<div class="form-group">
 				<label for="username">Username</label>
 				<input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && controls.username.errors }" />
@@ -17,12 +17,11 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<button [disabled]="pending" class="btn btn-primary">
-					<span *ngIf="pending" class="spinner-border spinner-border-sm mr-1"></span>
-					Login
-				</button>
+				<button class="btn btn-primary">Login</button>
 				<a routerLink="/register" class="btn btn-link">Register</a>
 			</div>
 		</form>
+		<button (click)="resetPassword()">Reset password</button>
+		<div *ngIf="alert" style="margin-top:50px" class="alert alert-info">{{alert}}</div>
 	</div>
 </div>

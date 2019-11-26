@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router} from '@angular/router';
-
+import {Ingredient} from "../ingredient";
 
 @Component({
   selector: 'app-dashboard',
@@ -8,10 +7,30 @@ import { Router} from '@angular/router';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-  title = 'iFridge-client';
-  constructor() { }
+  constructor() {}
+
+  hiddenBlockNames = [
+    'calculator',
+    'create-recipe',
+    'add-new-ingredient',
+    'ingredient-list'
+  ];
+
+  ingredients: Ingredient[];
 
   ngOnInit() {
+  }
+
+  fillPage(event) {
+    for (name of this.hiddenBlockNames) {
+      let component = document.getElementById(name);
+
+      if(event === name) {
+        component.setAttribute("style", "display: block");
+      } else {
+        component.setAttribute("style", "display: none");
+      }
+    }
   }
 
 }

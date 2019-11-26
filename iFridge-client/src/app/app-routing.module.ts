@@ -7,12 +7,14 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'ingredients', component: IngredientsListComponent },
+  { path: 'profile' , component: ProfileComponent },
   { path: '**', redirectTo: 'dashboard' }
 ];
 

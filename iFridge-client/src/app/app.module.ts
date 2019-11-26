@@ -17,6 +17,7 @@ import { RegisterComponent } from './register/register.component';
 import { RecipeListComponent } from './recipe-list/recipe-list.component';
 import { AddNewIngredientComponent } from './add-new-ingredient/add-new-ingredient.component';
 import { IngredientService } from './services/ingredient-service.service';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { IngredientService } from './services/ingredient-service.service';
     DashboardComponent,
     RegisterComponent,
     RecipeListComponent,
-    AddNewIngredientComponent
+    AddNewIngredientComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

@@ -22,7 +22,7 @@ export class DashboardComponent implements OnInit {
   }
 
   fillPage(event) {
-    for (name of this.hiddenBlockNames) {
+    for (let name of this.hiddenBlockNames) {
       let component = document.getElementById(name);
 
       if(event === name) {

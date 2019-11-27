@@ -10,7 +10,7 @@ import { Observable, BehaviorSubject } from 'rxjs';
 })
 export class AuthService {
 
-  private BACKEND_URL = "http://127.0.0.1:5000";
+  private BACKEND_URL = "http://127.0.0.1:8080";
   private userSubject: BehaviorSubject<string>;
   currentUser: Observable<string>;
 
@@ -22,7 +22,7 @@ export class AuthService {
 
   public login(username: string, password: string){
     var credentials = {"username": username, "password": password}
-    return this.httpClient.post<Token>(this.BACKEND_URL + '/auth', credentials)
+    return this.httpClient.post<Token>(this.BACKEND_URL + '/authenticate', credentials)
       .pipe(map(data => {
         localStorage.setItem('auth_token', data.auth_token);
         localStorage.setItem('username', data.username);

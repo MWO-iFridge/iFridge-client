@@ -22,4 +22,8 @@ export class RestApiService {
   public addRecipe(recipe: Recipe) {
     return this.httpClient.post<Recipe>(this.BACKEND_URL + '/recipe', recipe);
   }
+
+  public getHidden(){
+    return this.httpClient.get<String>(this.BACKEND_URL + "/hidden")
+  }
 }

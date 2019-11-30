@@ -8,7 +8,7 @@
            <img src="https://www.eyedocs.co.uk/components/com_community/assets/user-anon.png" class="img-circle profile-avatar" alt="User avatar">
           </div>
           <div class="panel-body text-center">
-              <p class="username">Nazwa użytkownika</p>
+              <p class="username">{{user.name}} {{user.surname}}</p>
           </div>
         </div>
       <div class="panel panel-default">
@@ -19,38 +19,43 @@
             <div class="form-group">
                 <label class="col-sm-2 control-label">Płeć</label>
                 <div class="col-sm-10">
-                    <input type="radio" name="gender" value="male"> Mężczyzna
-                    <input type="radio" name="gender" value="female"> Kobieta
+                    <input type="radio" name="gender" value="male" [(ngModel)]="gender" [checked] = "user.male"> Mężczyzna
+                    <input type="radio" name="gender" value="female" [(ngModel)]="gender"  [checked] = "!user.male"> Kobieta
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-sm-2 control-label">Waga</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control">
+                  <input type="number" id="weight" step=0.1 value={{user.weight}} class="form-control">
                 </div>
               </div>
           <div class="form-group">
             <label class="col-sm-2 control-label">Wzrost</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control">
+              <input type="number" id="height" step=0.1 value={{user.height}} class="form-control">
             </div>
           </div>
+
           <div class="form-group">
             <label class="col-sm-2 control-label">Typ diety</label>
             <div class="col-sm-10">
-              <select class="form-control">
-                <option value="current_weight" selected>Utrzymanie obecnej wagi</option>
-                <option value="less_weight">Zrzucenie sadełka</option>
-                <option value="more_weight">Budowa mięśni</option>
+              <select class="form-control" id="diet_type">
+                <option value="0"  [selected] ="user.diet == 0">Utrzymanie obecnej wagi</option>
+                <option value="1"  [selected] = "user.diet == 1">Zrzucenie sadełka</option>
+                <option value="2" [selected] = "user.diet == 2">Budowa mięśni</option>
               </select>
             </div>
           </div>
           <div class="form-group">
             <div class="col-sm-10 col-sm-offset-2">
-              <button type="submit" class="btn btn-primary">Potwierdź</button>
+              <button type="submit" class="btn btn-primary" (click)="saveProfile()">Potwierdź</button>
               <button type="reset" class="btn btn-default">Anuluj</button>
             </div>
           </div>
+            <div *ngIf="success" class = "success-div">
+                <label>Dane zostały zmienione.</label>
+            </div>
+  
         </div>
       </div>
 
@@ -63,26 +68,29 @@
           <div class="form-group">
             <label class="col-sm-2 control-label">Obecne hasło</label>
             <div class="col-sm-10">
-              <input type="password" class="form-control">
+              <input type="password" id="cur_pass" class="form-control">
             </div>
           </div>
           <div class="form-group">
             <label class="col-sm-2 control-label">Nowe hasło</label>
             <div class="col-sm-10">
-              <input type="password" class="form-control">
+              <input type="password" id="new_pass" class="form-control">
             </div>
           </div>
           <div class="form-group">
             <label class="col-sm-2 control-label">Powtórz nowe hasło</label>
             <div class="col-sm-10">
-              <input type="password" class="form-control">
+              <input type="password" id="new_pass2" class="form-control">
             </div>
           </div>
           <div class="form-group">
             <div class="col-sm-10 col-sm-offset-2">
-              <button type="submit" class="btn btn-primary">Potwierdź</button>
-              <button type="reset" class="btn btn-default">Anuluj</button>
+              <button type="submit" class="btn btn-primary" (click)="savePassword()">Potwierdź</button>
+              <button  class="btn btn-default" (click) = "resetPasswordForm()">Anuluj</button>
             </div>
+          </div>
+          <div *ngIf="success_pass" class = "success-div">
+              <label>Hasło zostało zmienione.</label>
           </div>
         </div>
       </div>

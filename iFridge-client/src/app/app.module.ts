@@ -22,6 +22,7 @@ import { TokenInterceptor } from './interceptors/token-interceptor'
 import { ErrorInterceptor } from './interceptors/error-interceptor';
 import { HiddenComponent } from './hidden/hidden.component'
 import { AuthGuard } from './interceptors/auth-guard.guard';
+import { ShowRandomRecipeComponent } from './show-random-recipe/show-random-recipe.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { AuthGuard } from './interceptors/auth-guard.guard';
     RecipeListComponent,
     AddNewIngredientComponent,
     ProfileComponent,
-    HiddenComponent
+    HiddenComponent,
+    ShowRandomRecipeComponent
   ],
   imports: [
     BrowserModule,

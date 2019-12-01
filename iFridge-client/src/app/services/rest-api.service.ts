@@ -19,6 +19,10 @@ export class RestApiService {
     return this.httpClient.get(this.BACKEND_URL + '/ingredient');
   }
 
+  public getRandomRecipe() {
+    return this.httpClient.get<Recipe>(this.BACKEND_URL + '/random');
+  }
+
   public addRecipe(recipe: Recipe) {
     return this.httpClient.post<Recipe>(this.BACKEND_URL + '/recipe', recipe);
   }

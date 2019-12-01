@@ -9,8 +9,7 @@ export class CalculatorComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
   weight = 70;
   height = 180;
@@ -34,8 +33,16 @@ export class CalculatorComponent implements OnInit {
       * activity);
   }
 
-  
-
-  zmienna = 'fajen hehe';
+  calculateBMI() {
+    var bmiValue = Math.round(this.weight/(this.height*this.height/10000));
+    if(bmiValue<19) {
+      return bmiValue + " - niedowaga";
+    } else if(bmiValue<25) {
+      return bmiValue + " - norma";
+    } else if(bmiValue<30) {
+      return bmiValue + " - nadwaga";
+    } 
+    return bmiValue + " - otyłość";
+  }
 
 }

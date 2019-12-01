@@ -1,23 +1,49 @@
+<div>
+    <b>Waga</b>
+    <p>
+        <input [(ngModel)]="weight" type="number">
+    </p>
+</div>
 
+<div>
+    <b>Wzrost w cm</b>
+    <p>
+        <input [(ngModel)]="height" type="number">
+    </p>
+</div>
 
-<input [(ngModel)]="weight" type="number">
-<p>Waga</p>
-<input [(ngModel)]="height" type="number">
-<p>Wzrost w cm</p>
-<input [(ngModel)]="age" type="number">
-<p>Wiek</p>
+<div>
+    <b>Wiek</b>
+    <p>
+        <input [(ngModel)]="age" type="number">
+    </p>
+</div>
 
-Mężczyzna
-<input [(ngModel)]="gender" type="radio" name="gender" value="male">
-Kobieta
-<input [(ngModel)]="gender" type="radio" name="gender" value="female">
-<p>Płeć</p>
+<div>
+    <b>Płeć</b>
+    <div>
+        Mężczyzna
+        <input [(ngModel)]="gender" type="radio" name="gender" value="male">
+    </div>
+    <div>
+        Kobieta
+        <input [(ngModel)]="gender" type="radio" name="gender" value="female">
+    </div>
+</div>
 
+<p></p>
 
-Duża
-<input [(ngModel)]="activity" type="radio" name="activity" value="high">
-Mała
-<input [(ngModel)]="activity" type="radio" name="activity" value="low">
-<p>Aktywność</p>
+<div>
+    <b>Aktywność</b>
+    <div>
+        Duża
+        <input [(ngModel)]="activity" type="radio" name="activity" value="high">
+    </div>
+    <div>
+        Mała
+        <input [(ngModel)]="activity" type="radio" name="activity" value="low">
+    </div>
+</div>
 
-<p>By utrzymać wagę musisz spożywać około {{calculateCalories()}} kalorii</p>
+<p>By utrzymać wagę musisz spożywać około <b> {{calculateCalories()}} kalorii</b></p>
+<p>Twoje BMI wynosi <b>{{calculateBMI()}}</b></p>

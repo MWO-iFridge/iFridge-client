@@ -12,8 +12,8 @@ export class DashboardComponent implements OnInit {
   hiddenBlockNames = [
     'calculator',
     'create-recipe',
-    'add-new-ingredient',
-    'ingredient-list'
+    'show-full-day-recipes',
+    'show-random-recipe'
   ];
 
   ingredients: Ingredient[];

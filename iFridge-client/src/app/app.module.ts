@@ -23,6 +23,7 @@ import { ErrorInterceptor } from './interceptors/error-interceptor';
 import { HiddenComponent } from './hidden/hidden.component'
 import { AuthGuard } from './interceptors/auth-guard.guard';
 import { ShowRandomRecipeComponent } from './show-random-recipe/show-random-recipe.component';
+import { ShowFullDayRecipesComponent } from './show-full-day-recipes/show-full-day-recipes.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { ShowRandomRecipeComponent } from './show-random-recipe/show-random-reci
     AddNewIngredientComponent,
     ProfileComponent,
     HiddenComponent,
-    ShowRandomRecipeComponent
+    ShowRandomRecipeComponent,
+    ShowFullDayRecipesComponent
   ],
   imports: [
     BrowserModule,

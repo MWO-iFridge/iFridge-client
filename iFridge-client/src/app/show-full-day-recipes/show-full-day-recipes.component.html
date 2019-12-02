@@ -1,1 +1,13 @@
-<p>show-full-day-recipes works!</p>
+<div *ngFor="let recipe of recipes">
+    <h1>{{recipe.recipeName}}
+        <div style="font-size:10px">
+            Czas przygotowania {{recipe.prepTime}} | {{recipe.kcal}} kcal
+        </div>
+    </h1>
+        
+    <div>
+        <p>
+            {{recipe.recipeDescription}}
+        </p>
+    </div>
+</div>

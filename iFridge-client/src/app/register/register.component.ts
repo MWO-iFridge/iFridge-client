@@ -53,13 +53,13 @@ export class RegisterComponent implements OnInit {
                                   this.registerForm.value.phone, this.registerForm.value.name, this.registerForm.value.surname)
       .subscribe(
         data => {    
-          if (data.code == 1){   
+          if (data.code == "1"){   
             this.alert = "Success. Please log in."
             setTimeout(() => 
             {
               this.router.navigateByUrl('/login')
             },3000);
-          } else if (data.code == 0){   
+          } else if (data.code == "0"){   
             this.alert = data.message
           }
 

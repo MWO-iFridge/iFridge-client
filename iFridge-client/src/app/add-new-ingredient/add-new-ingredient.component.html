@@ -1,27 +1,26 @@
 <h2 class="sub-header">Dodaj składnik</h2>
-<div class="card my-5">
-  <div class="card-body">
     <form (ngSubmit)="onSubmit()" #userForm="ngForm">
       <div class="form-group">
         <label for="name">Składnik</label>
-        <input type="text" [(ngModel)]="ingredient.name"
-               class="form-control"
+        <input class="app-add-new-ingredient form-control"
+               [(ngModel)]="ingredient.name"
+               (keyup.enter)="changeTitle($event.target.value)"
+               #inputElement="ngModel"
                id="name"
                name="name"
-               placeholder="Wprowadź składnik"
-               required #name="ngModel">
+               placeholder="Wprowadź składnik">
       </div>
       <div class="form-group">
         <label for="amount">Ilość</label>
-        <input type="text" [(ngModel)]="ingredient.amount"
+        <input type="text"
+               [(ngModel)]="ingredient.amount"
                class="form-control"
                id="amount"
                name="amount"
                placeholder="Wprowadź ilość"
                required #amount="ngModel">
       </div>
-      <button type="submit" [disabled]="!userForm.form.valid"
+      <button (click)="changeTitle(inputElement.value)" [disabled]="!userForm.form.valid"
               class="btn btn-info">Dodaj</button>
     </form>
-  </div>
-</div>
+

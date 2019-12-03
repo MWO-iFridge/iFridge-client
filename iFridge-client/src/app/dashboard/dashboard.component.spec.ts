@@ -1,21 +1,32 @@
-import { TestBed, async } from '@angular/core/testing';
+import { TestBed, ComponentFixture, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { DashboardComponent } from './dashboard.component';
+import { AddNewIngredientComponent } from '../add-new-ingredient/add-new-ingredient.component';
+import { ListManagerComponent } from '../list-manager/list-manager.component';
 
 describe('DashboardComponent', () => {
+     let component: DashboardComponent;
+     let fixture: ComponentFixture<ListManagerComponent>;
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
         RouterTestingModule
       ],
       declarations: [
-        DashboardComponent
+        DashboardComponent,
+        AddNewIngredientComponent
       ],
     }).compileComponents();
   }));
+  beforeEach(() => {
+      fixture = TestBed.createComponent(IngredientsListComponent);
+      component = fixture.componentInstance;
+      fixture.detectChanges();
+    });
 
   it('should create the app', () => {
-    const fixture = TestBed.createComponent(DashboardComponent);
+    const fixture = TestBed.createComponent(AddNewIngredientComponent);
     const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
   });

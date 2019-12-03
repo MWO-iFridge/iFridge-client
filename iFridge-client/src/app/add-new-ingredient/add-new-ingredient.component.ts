@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IngredientService } from '../services/ingredient-service.service';
 import { Ingredient } from '../ingredient';
@@ -9,7 +9,8 @@ import { Ingredient } from '../ingredient';
   styleUrls: ['./add-new-ingredient.component.scss']
 })
 export class AddNewIngredientComponent {
-
+  @Output() submit: EventEmitter<string> = new EventEmitter();
+  title: string = 'my title';
   ingredient : Ingredient;
 
   constructor(private route: ActivatedRoute,
@@ -18,11 +19,17 @@ export class AddNewIngredientComponent {
                   this.ingredient = new Ingredient(); }
 
   onSubmit() {
-      this.ingredientService.save(this.ingredient).subscribe(result => this.gotoIngredientList());
+        this.ingredientService.saveIntoFridge(this.ingredient);
+        this.ingredientService.showFridge();
+      //this.ingredientService.save(this.ingredient).subscribe(result => this.gotoIngredientList());
     }
 
     gotoIngredientList() {
       this.router.navigate(['/ingredients']);
     }
+
+    changeTitle(newTitle: string): void {
+        this.submit.emit(newTitle);
+      }
 
 }

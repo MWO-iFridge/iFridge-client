@@ -17,12 +17,14 @@ import { RegisterComponent } from './register/register.component';
 import { RecipeListComponent } from './recipe-list/recipe-list.component';
 import { AddNewIngredientComponent } from './add-new-ingredient/add-new-ingredient.component';
 import { IngredientService } from './services/ingredient-service.service';
+import { ListStorageService } from './services/list-storage.service';
 import { ProfileComponent } from './profile/profile.component';
 import { TokenInterceptor } from './interceptors/token-interceptor'
 import { ErrorInterceptor } from './interceptors/error-interceptor';
 import { HiddenComponent } from './hidden/hidden.component'
 import { AuthGuard } from './interceptors/auth-guard.guard';
 import { ShowRandomRecipeComponent } from './show-random-recipe/show-random-recipe.component';
+import { ListManagerComponent } from './list-manager/list-manager.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,8 @@ import { ShowRandomRecipeComponent } from './show-random-recipe/show-random-reci
     AddNewIngredientComponent,
     ProfileComponent,
     HiddenComponent,
-    ShowRandomRecipeComponent
+    ShowRandomRecipeComponent,
+    ListManagerComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +55,8 @@ import { ShowRandomRecipeComponent } from './show-random-recipe/show-random-reci
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     AuthGuard,
-    IngredientService],
+    IngredientService,
+    ListStorageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

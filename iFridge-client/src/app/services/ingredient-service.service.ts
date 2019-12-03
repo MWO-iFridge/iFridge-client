@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {EventEmitter, Injectable, Output} from '@angular/core';
 import { Observable } from 'rxjs';
 import { Ingredient } from '../ingredient';
 import { HttpClient } from '@angular/common/http';
@@ -7,7 +7,10 @@ import { ListStorageService } from './list-storage.service';
 @Injectable()
 export class IngredientService {
 
+  @Output() change: EventEmitter<boolean> = new EventEmitter();
+
   private ingredientUrl: string;
+  private list: any[];
 
   constructor(private http: HttpClient, private storage: ListStorageService ) {
     this.ingredientUrl = 'http://localhost:8080/ingredient';
@@ -22,8 +25,8 @@ export class IngredientService {
   public saveIntoFridge(ingredient: Ingredient) {
     localStorage.setItem(JSON.stringify(ingredient),  JSON.stringify(ingredient) );
   }
-  public showFridge(){
-  console.log({...localStorage});
+  public showFridge() {
+    console.log({...localStorage});
     return  {...localStorage};
   }
   getList() {
@@ -32,6 +35,11 @@ export class IngredientService {
 
   addItem(item) {
     return this.storage.post(item);
+  }
+
+  toggle() {
+    this.list = this.getList();
+    this.change.emit(this.list);
   }
 }
 

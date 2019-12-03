@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, HostBinding, OnInit} from '@angular/core';
 import { IngredientService } from '../services/ingredient-service.service';
 import { ListStorageService } from '../services/list-storage.service';
 
@@ -11,10 +11,13 @@ export class ListManagerComponent implements OnInit {
   title = 'Moje produkty';
   list;
 
-  constructor(private ingredientService:IngredientService) { }
+  constructor(private ingredientService: IngredientService) { }
 
   ngOnInit() {
     this.list = this.ingredientService.getList();
+    this.ingredientService.change.subscribe(list => {
+      this.list = list;
+    });
   }
 
   addItem(title): void {

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import {RestApiService} from "../services/rest-api.service";
 import {IngredientService} from  "../services/ingredient-service.service";
 import {Ingredient} from  "../ingredient";
@@ -8,7 +8,7 @@ import {Ingredient} from  "../ingredient";
   styleUrls: ['./ingredients-list.component.scss']
 })
 export class IngredientsListComponent implements OnInit {
-
+  @Input() ingredientsList: Ingredient;
   ingredients: Ingredient[];
 
   constructor(private ingredientService: IngredientService) { }
@@ -16,4 +16,5 @@ export class IngredientsListComponent implements OnInit {
   ngOnInit() {
     this.ingredientService.findAll().subscribe(data => this.ingredients = data);
   }
+
 }

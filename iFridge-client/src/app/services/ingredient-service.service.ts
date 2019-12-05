@@ -1,23 +1,51 @@
-import { Injectable } from '@angular/core';
+import {EventEmitter, Injectable, Output} from '@angular/core';
 import { Observable } from 'rxjs';
 import { Ingredient } from '../ingredient';
 import { HttpClient } from '@angular/common/http';
+import { ListStorageService } from './list-storage.service';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class IngredientService {
 
-  private ingredientUrl: string;
+  @Output() change: EventEmitter<boolean> = new EventEmitter();
 
-  constructor(private http: HttpClient) {
+  private ingredientUrl: string;
+  private list: Ingredient[];
+
+  constructor(private http: HttpClient, private storage: ListStorageService ) {
     this.ingredientUrl = 'http://localhost:8080/ingredient';
   }
   public findAll(): Observable<Ingredient[]> {
        return this.http.get<Ingredient[]>(this.ingredientUrl);
   }
   public save(ingredient: Ingredient) {
-    return this.http.post<Ingredient>(this.ingredientUrl, ingredient);
+    return this.storage.post(ingredient);
+  }
+
+  public saveIntoFridge(ingredient: Ingredient) {
+    localStorage.setItem(JSON.stringify(ingredient),  JSON.stringify(ingredient) );
+  }
+  public showFridge() {
+    console.log({...localStorage});
+    return  {...localStorage};
+  }
+  getIngredientList() {
+    return this.storage.get();
+  }
+
+  addItem(item: Ingredient) {
+    this.list = this.getIngredientList();
+    return this.storage.post(item);
+  }
+  toggle() {
+    this.list = this.getIngredientList();
+    this.change.emit(this.list);
+  }
+
+  remove(ingredient: Ingredient) {
+    this.storage.destroy(ingredient);
+    this.list = this.getIngredientList();
+    this.change.emit(this.list);
   }
 }
 

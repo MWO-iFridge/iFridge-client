@@ -1,0 +1,18 @@
+<div class="todo-app">
+  <h1>
+    {{ title }}
+  </h1>
+  <ul class="list-group">
+    <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let item of list">
+      <div class = "grid">
+        <span class="btn"(click)="removeItem(ingredient)"><i class="fa fa-trash"></i></span>
+        <span class="badge badge-primary">
+           <app-ingredients-list  [ingredientsList]="item.amount"> </app-ingredients-list>
+           <app-ingredients-list  [ingredientsList]="item.uom"> </app-ingredients-list>
+        </span>
+        <app-ingredients-list  [ingredientsList]="item.name"> </app-ingredients-list>
+<!--        <app-ingredients-list [ingredientsList.name]="item"> </app-ingredients-list>-->
+      </div>
+    </li>
+  </ul>
+</div>

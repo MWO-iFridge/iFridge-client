@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Ingredient} from "../ingredient";
+import { IngredientService } from '../services/ingredient-service.service';
+import { ListStorageService } from '../services/list-storage.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,7 +9,11 @@ import {Ingredient} from "../ingredient";
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-  constructor() {}
+
+  title = 'tytul';
+  list;
+
+  constructor(private ingredientService:IngredientService) {}
 
   hiddenBlockNames = [
     'calculator',
@@ -19,7 +25,9 @@ export class DashboardComponent implements OnInit {
   ingredients: Ingredient[];
 
   ngOnInit() {
+    this.list = this.ingredientService.getIngredientList();
   }
+
 
   fillPage(event) {
     for (let name of this.hiddenBlockNames) {

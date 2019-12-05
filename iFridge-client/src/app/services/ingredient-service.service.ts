@@ -41,5 +41,11 @@ export class IngredientService {
     this.list = this.getIngredientList();
     this.change.emit(this.list);
   }
+
+  remove(ingredient: Ingredient) {
+    this.storage.destroy(ingredient);
+    this.list = this.getIngredientList();
+    this.change.emit(this.list);
+  }
 }
 

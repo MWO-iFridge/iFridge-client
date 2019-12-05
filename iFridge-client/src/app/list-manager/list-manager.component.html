@@ -5,6 +5,7 @@
   <ul class="list-group">
     <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let item of list">
       <div class = "grid">
+        <span class="btn"(click)="removeItem(ingredient)"><i class="fa fa-trash"></i> </span>
         <span class="badge badge-primary">1</span>
         <app-ingredients-list  [ingredientsList]="item"> </app-ingredients-list>
 <!--        <app-ingredients-list [ingredientsList.name]="item"> </app-ingredients-list>-->

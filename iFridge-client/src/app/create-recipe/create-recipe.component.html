@@ -1,9 +1,26 @@
 <form (ngSubmit)="onSubmit()" #createRecipe="ngForm">
     <div class="form-group">
-        <input type="text" [(ngModel)]="recipe.name" class="form-control" id="name" name="name">
+        <input type="text" [(ngModel)]="recipe.recipeName" id="name" name="name">
         <p>Nazwa</p>
-        <input type="text" [(ngModel)]="recipe.description" class="form-control" id="description" name="description">
+        <textarea [(ngModel)]="recipe.recipeDescription" id="description" name="description" rows="4" cols="50"></textarea>
         <p>Opis</p>
+        <input type="number" [(ngModel)]="recipe.kcal" id="kcal" name="kcal">
+        <p>Kcal</p>
+        <input type="number" [(ngModel)]="recipe.prepTime" id="prepTime" name="prepTime">
+        <p>Czas przygotowania (min)</p>
+        <div>
+            Śniadanie
+            <input [(ngModel)]="recipe.course" type="radio" name="course" value="dinner">
+        </div>
+        <div>
+            Obiad
+            <input [(ngModel)]="recipe.course" type="radio" name="course" value="breakfast">
+        </div>
+        <div>
+            Kolacja
+            <input [(ngModel)]="recipe.course" type="radio" name="course" value="supper">
+        </div>
+        <p></p>
         <button type="submit" class="btn btn-info">Dodaj przepis</button>
     </div>
 </form>

@@ -14,10 +14,9 @@ export class ShowFullDayRecipesComponent implements OnInit {
   constructor(private service: RestApiService) { }
 
   ngOnInit() {
-    for(var i=0; i<5; i++) {
+    for(var i=0; i<3; i++) {
       this.recipes.push(new Recipe());
       this.service.getRandomRecipe().subscribe(data => this.recipes[i] = data);
     }
   }
-
 }

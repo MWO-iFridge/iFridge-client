@@ -1,0 +1,13 @@
+<div *ngFor="let recipe of recipes">
+    <h1>{{recipe.recipeName}}
+        <div style="font-size:10px">
+            Czas przygotowania {{recipe.prepTime}} min | {{recipe.kcal}} kcal
+        </div>
+    </h1>
+        
+    <div>
+        <p>
+            {{recipe.recipeDescription}}
+        </p>
+    </div>
+</div>

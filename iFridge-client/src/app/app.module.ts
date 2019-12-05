@@ -25,6 +25,8 @@ import { HiddenComponent } from './hidden/hidden.component'
 import { AuthGuard } from './interceptors/auth-guard.guard';
 import { ShowRandomRecipeComponent } from './show-random-recipe/show-random-recipe.component';
 import { ListManagerComponent } from './list-manager/list-manager.component';
+import { ShowFullDayRecipesComponent } from './show-full-day-recipes/show-full-day-recipes.component';
+
 
 @NgModule({
   declarations: [
@@ -42,7 +44,8 @@ import { ListManagerComponent } from './list-manager/list-manager.component';
     ProfileComponent,
     HiddenComponent,
     ShowRandomRecipeComponent,
-    ListManagerComponent
+    ListManagerComponent,
+    ShowFullDayRecipesComponent
   ],
   imports: [
     BrowserModule,

@@ -8,6 +8,7 @@
         <span class="btn"(click)="removeItem(ingredient)"><i class="fa fa-trash"></i></span>
         <span class="badge badge-primary">
            <app-ingredients-list  [ingredientsList]="item.amount"> </app-ingredients-list>
+           <app-ingredients-list  [ingredientsList]="item.uom"> </app-ingredients-list>
         </span>
         <app-ingredients-list  [ingredientsList]="item.name"> </app-ingredients-list>
 <!--        <app-ingredients-list [ingredientsList.name]="item"> </app-ingredients-list>-->

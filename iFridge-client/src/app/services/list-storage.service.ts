@@ -3,8 +3,8 @@ import {Ingredient} from  "../ingredient";
 const storageName = 'ingredient_list';
 
 const defaultList = [
-  { name: 'Jajko' , amount: 2 },
-  { name: 'Jabłko', amount: 4 }
+  { name: 'Jajko' , amount: 2, uom: "szt" },
+  { name: 'Kurczak', amount: 4, uom: "kg" }
 ];
 
 @Injectable()

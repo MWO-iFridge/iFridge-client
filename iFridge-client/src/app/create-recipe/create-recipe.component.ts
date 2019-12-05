@@ -9,6 +9,7 @@ import { RestApiService } from '../services/rest-api.service';
 })
 export class CreateRecipeComponent  {
 
+  prepTime: number;
   recipe: Recipe;
 
   constructor(private service: RestApiService) {
@@ -16,6 +17,8 @@ export class CreateRecipeComponent  {
    }
 
    onSubmit() {
+     this.recipe.prepTime.minutes = this.prepTime%60;
+     this.recipe.prepTime.hours = this.prepTime/60;
      this.service.addRecipe(this.recipe);
    }
 

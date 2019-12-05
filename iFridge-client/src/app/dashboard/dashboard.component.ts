@@ -25,12 +25,9 @@ export class DashboardComponent implements OnInit {
   ingredients: Ingredient[];
 
   ngOnInit() {
-    this.list = this.ingredientService.getList();
+    this.list = this.ingredientService.getIngredientList();
   }
 
-  addItem(title): void {
-      this.list = this.ingredientService.addItem({ title });
-    }
 
   fillPage(event) {
     for (let name of this.hiddenBlockNames) {

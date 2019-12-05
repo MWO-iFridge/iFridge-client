@@ -8,7 +8,7 @@ import {Ingredient} from  "../ingredient";
   styleUrls: ['./ingredients-list.component.scss']
 })
 export class IngredientsListComponent implements OnInit {
-  @Input() ingredientsList: any;
+  @Input() ingredientsList: Ingredient;
   ingredients: Ingredient[];
 
   constructor(private ingredientService: IngredientService) { }

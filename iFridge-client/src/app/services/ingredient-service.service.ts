@@ -10,7 +10,7 @@ export class IngredientService {
   @Output() change: EventEmitter<boolean> = new EventEmitter();
 
   private ingredientUrl: string;
-  private list: any[];
+  private list: Ingredient[];
 
   constructor(private http: HttpClient, private storage: ListStorageService ) {
     this.ingredientUrl = 'http://localhost:8080/ingredient';
@@ -19,7 +19,7 @@ export class IngredientService {
        return this.http.get<Ingredient[]>(this.ingredientUrl);
   }
   public save(ingredient: Ingredient) {
-    return this.http.post<Ingredient>(this.ingredientUrl, ingredient);
+    return this.storage.post(ingredient);
   }
 
   public saveIntoFridge(ingredient: Ingredient) {
@@ -29,17 +29,18 @@ export class IngredientService {
     console.log({...localStorage});
     return  {...localStorage};
   }
-  getList() {
+  getIngredientList() {
     return this.storage.get();
   }
 
-  addItem(item) {
+  addItem(item: Ingredient) {
     return this.storage.post(item);
   }
 
   toggle() {
-    this.list = this.getList();
-    this.change.emit(this.list);
+    this.list = this.getIngredientList();
+   // this.change.emit(this.list);
+   // this.change.emit(this.list);
   }
 }
 

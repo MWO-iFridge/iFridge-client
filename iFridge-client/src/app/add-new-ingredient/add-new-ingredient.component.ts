@@ -12,6 +12,7 @@ import { Ingredient } from '../ingredient';
 export class AddNewIngredientComponent {
   @Output() listManager: ListManagerComponent;
   @Output() submit: EventEmitter<string> = new EventEmitter();
+  @Output() submitter: EventEmitter<Ingredient> = new EventEmitter();
   title: string = 'my title';
   ingredient : Ingredient;
 
@@ -29,7 +30,16 @@ export class AddNewIngredientComponent {
         this.submit.emit(newTitle);
       }
 
+    changeAmount(newAmount: string): void {
+            this.submit.emit(newAmount);
+    }
+
+  addItem(item: Ingredient) {
+      this.ingredientService.save(this.ingredient);
+   }
+
   onSubmit() {
-    this.ingredientService.toggle();
+    this.submitter.emit(this.ingredient);
+    this.ingredientService.save(this.ingredient);
   }
 }

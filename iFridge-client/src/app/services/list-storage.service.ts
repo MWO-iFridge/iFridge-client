@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
+import {Ingredient} from  "../ingredient";
 const storageName = 'ingredient_list';
 
 const defaultList = [
-  { title: 'Jajko' },
-  { title: 'Jabłko' }
+  { name: 'Jajko' , amount: 2 },
+  { name: 'Jabłko', amount: 4 }
 ];
 
 @Injectable()
 export class ListStorageService {
-private list;
+private list: Ingredient[];
 
   constructor() {
     this.list = JSON.parse(localStorage.getItem(storageName)) || defaultList;
@@ -20,7 +21,7 @@ private list;
   }
 
   // add a new item
-  post(item) {
+  post(item: Ingredient) {
     this.list.push(item);
     return this.update();
   }

@@ -1,6 +1,7 @@
 import {Component, HostBinding, OnInit} from '@angular/core';
 import { IngredientService } from '../services/ingredient-service.service';
 import { ListStorageService } from '../services/list-storage.service';
+import {Ingredient} from  "../ingredient";
 
 @Component({
   selector: 'list-manager',
@@ -9,18 +10,18 @@ import { ListStorageService } from '../services/list-storage.service';
 })
 export class ListManagerComponent implements OnInit {
   title = 'Moje produkty';
-  list;
+  list: Ingredient[];
 
   constructor(private ingredientService: IngredientService) { }
 
   ngOnInit() {
-    this.list = this.ingredientService.getList();
+    this.list = this.ingredientService.getIngredientList();
     this.ingredientService.change.subscribe(list => {
       this.list = list;
     });
   }
 
-  addItem(title): void {
-    this.list = this.ingredientService.addItem({ title });
+  addItem(ingredient: Ingredient): void {
+    this.list = this.ingredientService.addItem(ingredient);
   }
 }

@@ -40,7 +40,6 @@ private list: Ingredient[];
 
   private update() {
     localStorage.setItem(storageName, JSON.stringify(this.list));
-
     return this.get();
   }
 

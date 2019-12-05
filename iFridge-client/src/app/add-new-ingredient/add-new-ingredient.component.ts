@@ -22,24 +22,16 @@ export class AddNewIngredientComponent {
                     this.ingredient = new Ingredient();
                     }
 
-    gotoIngredientList() {
-      this.router.navigate(['/ingredients']);
-    }
-
-    changeTitle(newTitle: string): void {
-        this.submit.emit(newTitle);
-      }
-
-    changeAmount(newAmount: string): void {
-            this.submit.emit(newAmount);
-    }
-
   addItem(item: Ingredient) {
       this.ingredientService.save(this.ingredient);
    }
 
   onSubmit() {
     this.submitter.emit(this.ingredient);
-    this.ingredientService.save(this.ingredient);
+    this.ingredientService.addItem(this.ingredient);
+    this.ingredientService.getIngredientList();
+    this.submit.emit(this.ingredient.name);
+    this.ingredient = new Ingredient();
+    this.ingredientService.toggle();
   }
 }

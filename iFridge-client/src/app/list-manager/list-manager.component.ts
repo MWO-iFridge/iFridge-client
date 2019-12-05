@@ -1,7 +1,7 @@
 import {Component, HostBinding, OnInit} from '@angular/core';
 import { IngredientService } from '../services/ingredient-service.service';
 import { ListStorageService } from '../services/list-storage.service';
-import {Ingredient} from  "../ingredient";
+import {Ingredient} from '../ingredient';
 
 @Component({
   selector: 'list-manager',
@@ -23,5 +23,8 @@ export class ListManagerComponent implements OnInit {
 
   addItem(ingredient: Ingredient): void {
     this.list = this.ingredientService.addItem(ingredient);
+    this.ingredientService.change.subscribe(list => {
+      this.list = list;
+    });
   }
 }

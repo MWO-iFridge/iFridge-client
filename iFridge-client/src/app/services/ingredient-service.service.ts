@@ -34,13 +34,12 @@ export class IngredientService {
   }
 
   addItem(item: Ingredient) {
+    this.list = this.getIngredientList();
     return this.storage.post(item);
   }
-
   toggle() {
     this.list = this.getIngredientList();
-   // this.change.emit(this.list);
-   // this.change.emit(this.list);
+    this.change.emit(this.list);
   }
 }
 

@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {RestApiService} from "../services/rest-api.service";
-import { Recipe } from '../recipe';
+import {Recipe} from '../recipe';
 
 @Component({
   selector: 'app-show-random-recipe',
@@ -9,7 +9,7 @@ import { Recipe } from '../recipe';
 })
 export class ShowRandomRecipeComponent implements OnInit {
 
-  recipe: Recipe;
+  recipe: Recipe = new Recipe();
 
   constructor(private service: RestApiService) { }
 

@@ -1,12 +1,9 @@
-import { Time } from '@angular/common';
-import { FoodCategory } from './food-category';
-
 export class Recipe {
     id: number;
     course: string;
-    foodCategory: FoodCategory;
+    foodCategory: string;
     recipeName: string;
     recipeDescription: string;
-    prepTime: Time;
+    prepTime: Date;
     kcal: number;
 }

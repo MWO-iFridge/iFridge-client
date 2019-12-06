@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { Recipe } from '../recipe';
-import { RestApiService } from '../services/rest-api.service';
+import {Component} from '@angular/core';
+import {Recipe} from '../recipe';
+import {RestApiService} from '../services/rest-api.service';
 
 @Component({
   selector: 'app-create-recipe',
@@ -17,8 +17,6 @@ export class CreateRecipeComponent  {
    }
 
    onSubmit() {
-     this.recipe.prepTime.minutes = this.prepTime%60;
-     this.recipe.prepTime.hours = this.prepTime/60;
      this.service.addRecipe(this.recipe);
    }
 

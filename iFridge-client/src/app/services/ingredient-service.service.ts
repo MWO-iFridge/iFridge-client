@@ -1,8 +1,8 @@
 import {EventEmitter, Injectable, Output} from '@angular/core';
-import { Observable } from 'rxjs';
-import { Ingredient } from '../ingredient';
-import { HttpClient } from '@angular/common/http';
-import { ListStorageService } from './list-storage.service';
+import {Observable} from 'rxjs';
+import {Ingredient} from '../ingredient';
+import {HttpClient} from '@angular/common/http';
+import {ListStorageService} from './list-storage.service';
 
 @Injectable()
 export class IngredientService {
@@ -39,13 +39,13 @@ export class IngredientService {
   }
   toggle() {
     this.list = this.getIngredientList();
-    this.change.emit(this.list);
+    this.change.emit(true);
   }
 
   remove(ingredient: Ingredient) {
     this.storage.destroy(ingredient);
     this.list = this.getIngredientList();
-    this.change.emit(this.list);
+    this.change.emit(true);
   }
 }
 

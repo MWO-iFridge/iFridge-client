@@ -8,16 +8,15 @@
     <p>
         {{recipe.recipeDescription}}
     </p>
-    <p>
-      <!-- TODO przeiterowac jakos ladnie, logicznie, obejrzyj obiekt -->
-      <!-- TODO poklikac po stronie, zmienic cos jak brzydkie-->
-      <!-- TODO dodac przepisow sporo do sql, tyle ile sie uda-->
-      {{recipe.quantityDtoList[0].ingredient}}
-      {{recipe.quantityDtoList[0].ingredientQuantity}}
-      {{recipe.quantityDtoList[0].unitOfMeasurement}}
-      {{recipe.quantityDtoList[0].unitOfMeasurement}}
-      {{recipe.recipeStepDtoList[0].stepDescription}}
-      {{recipe.recipeStepDtoList[0].stepNumber}}
+    <p *ngFor="let ingredient of recipe.quantityDtoList">
+      {{ingredient.ingredient}}
+      {{ingredient.ingredientQuantity}}
+      {{ingredient.unitOfMeasurement}}
+      {{ingredient.unitOfMeasurement}}
+    </p>
+    <p *ngFor="let step of recipe.recipeStepDtoList">
+      {{step.stepDescription}}
+      {{step.stepNumber}}
     </p>
 </div>
 

@@ -7,7 +7,7 @@ import {ListStorageService} from './list-storage.service';
 @Injectable()
 export class IngredientService {
 
-  @Output() change: EventEmitter<boolean> = new EventEmitter();
+  @Output() change: EventEmitter<Ingredient[]> = new EventEmitter();
 
   private ingredientUrl: string;
   private list: Ingredient[];
@@ -37,15 +37,16 @@ export class IngredientService {
     this.list = this.getIngredientList();
     return this.storage.post(item);
   }
+
   toggle() {
     this.list = this.getIngredientList();
-    this.change.emit(true);
+    this.change.emit(this.list);
   }
 
   remove(ingredient: Ingredient) {
     this.storage.destroy(ingredient);
     this.list = this.getIngredientList();
-    this.change.emit(true);
+    this.change.emit(this.list);
   }
 }
 

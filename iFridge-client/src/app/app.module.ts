@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './component/nav-bar/nav-bar.component';
@@ -19,13 +18,15 @@ import { AddNewIngredientComponent } from './add-new-ingredient/add-new-ingredie
 import { IngredientService } from './services/ingredient-service.service';
 import { ListStorageService } from './services/list-storage.service';
 import { ProfileComponent } from './profile/profile.component';
-import { TokenInterceptor } from './interceptors/token-interceptor'
+import { TokenInterceptor } from './interceptors/token-interceptor';
 import { ErrorInterceptor } from './interceptors/error-interceptor';
-import { HiddenComponent } from './hidden/hidden.component'
+import { HiddenComponent } from './hidden/hidden.component';
 import { AuthGuard } from './interceptors/auth-guard.guard';
 import { ShowRandomRecipeComponent } from './show-random-recipe/show-random-recipe.component';
 import { ListManagerComponent } from './list-manager/list-manager.component';
 import { ShowFullDayRecipesComponent } from './show-full-day-recipes/show-full-day-recipes.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatDialogModule, MatSelectModule} from '@angular/material';
 
 
 @NgModule({
@@ -52,7 +53,10 @@ import { ShowFullDayRecipesComponent } from './show-full-day-recipes/show-full-d
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatDialogModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },

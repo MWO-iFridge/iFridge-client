@@ -1,3 +1,6 @@
+import {RecipeStep} from "./model/recipeStep";
+import {Quantity} from "./model/quantity";
+
 export class Recipe {
     id: number;
     course: string;
@@ -6,4 +9,6 @@ export class Recipe {
     recipeDescription: string;
     prepTime: Date;
     kcal: number;
+    recipeStepDtoList: RecipeStep[];
+    quantityDtoList: Quantity[];
 }

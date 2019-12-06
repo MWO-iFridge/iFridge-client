@@ -13,8 +13,8 @@ export class DashboardComponent implements OnInit {
   constructor(private ingredientService:IngredientService) {}
 
   hiddenBlockNames = [
+    'add-new-ingredient',
     'calculator',
-    'create-recipe',
     'show-random-recipe',
     'show-full-day-recipes'
   ];

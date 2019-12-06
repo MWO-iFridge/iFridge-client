@@ -9,15 +9,15 @@ import {RestApiService} from '../services/rest-api.service';
 })
 export class CreateRecipeComponent  {
 
-  prepTime: number;
   recipe: Recipe;
+  isSaved: boolean;
 
   constructor(private service: RestApiService) {
     this.recipe = new Recipe();
    }
 
    onSubmit() {
-     this.service.addRecipe(this.recipe);
+     this.service.addRecipe(this.recipe).subscribe(() => this.isSaved = true);
    }
 
 }

@@ -7,7 +7,7 @@
           <p>Opis</p>
           <input type="number" [(ngModel)]="recipe.kcal" id="kcal" name="kcal">
           <p>Kcal</p>
-          <input type="number" [(ngModel)]="prepTime" id="prepTime" name="prepTime">
+          <input type="number" [(ngModel)]="recipe.prepTime" id="prepTime" name="prepTime">
           <p>Czas przygotowania (min)</p>
           <div>
               Śniadanie
@@ -21,8 +21,11 @@
               Kolacja
               <input [(ngModel)]="recipe.course" type="radio" name="course" value="supper">
           </div>
-          <p></p>
+        <input type="text" [(ngModel)]="recipe.foodCategory" id="foodCategory" name="name">
+        <p></p>
           <button type="submit" class="btn btn-info">Dodaj przepis</button>
       </div>
   </form>
+
+  {{isSaved}}
 </div>

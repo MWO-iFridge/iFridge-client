@@ -1,10 +1,8 @@
-import {Component, OnInit, Input, Output, EventEmitter, HostListener} from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { IngredientService } from '../services/ingredient-service.service';
-import { ListManagerComponent } from '../list-manager/list-manager.component';
-import { Ingredient } from '../ingredient';
-import {FormBuilder, FormGroup} from '@angular/forms';
-import {MatDialogRef} from '@angular/material';
+import {Component, EventEmitter, Output} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {IngredientService} from '../services/ingredient-service.service';
+import {ListManagerComponent} from '../list-manager/list-manager.component';
+import {Ingredient} from '../ingredient';
 
 @Component({
   selector: 'app-add-new-ingredient',
@@ -15,7 +13,6 @@ export class AddNewIngredientComponent {
   @Output() listManager: ListManagerComponent;
   @Output() submit: EventEmitter<string> = new EventEmitter();
   @Output() submitter: EventEmitter<Ingredient> = new EventEmitter();
-  title: string = 'my title';
   ingredient: Ingredient;
 
   constructor(      private route: ActivatedRoute,

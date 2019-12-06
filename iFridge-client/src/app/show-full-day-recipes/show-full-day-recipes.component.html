@@ -4,10 +4,19 @@
             Czas przygotowania {{recipe.prepTime}} minut | {{recipe.kcal}} kcal
         </div>
     </h1>
-        
+
     <div>
-        <p>
-            {{recipe.recipeDescription}}
-        </p>
+      <p>
+        {{recipe.recipeDescription}}
+      </p>
+      <p *ngFor="let ingredient of recipe.quantityDtoList">
+        {{ingredient.ingredient}}
+        {{ingredient.ingredientQuantity}}
+        {{ingredient.unitOfMeasurement}}
+      </p>
+      <p *ngFor="let step of recipe.recipeStepDtoList">
+        {{step.stepDescription}}
+        {{step.stepNumber}}
+      </p>
     </div>
 </div>

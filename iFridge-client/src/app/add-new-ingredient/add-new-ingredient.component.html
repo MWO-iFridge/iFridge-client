@@ -20,14 +20,17 @@
                required #amount="ngModel">
       </div>
       <div class="form-group">
-        <label for="uom"></label>
-        <input type="text"
-               [(ngModel)]="ingredient.uom"
-               class="form-control"
-               id="uom"
-               name="uom"
-               placeholder="Szt"
-               required #uom="ngModel">
+        <select class="form-control"
+                [(ngModel)]="ingredient.uom"
+                id="uom"
+                name="uom"
+                placeholder="Szt"
+                required #uom="ngModel">
+          <option value="szt">szt</option>
+          <option value="kg">kg</option>
+          <option value="ml">ml</option>
+          <option value="g">g</option>
+        </select>
       </div>
       <button type="submit" [disabled]="!userForm.form.valid"
               class="btn btn-info">Dodaj</button>

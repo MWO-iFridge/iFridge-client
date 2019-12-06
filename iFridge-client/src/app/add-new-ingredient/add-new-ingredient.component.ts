@@ -3,6 +3,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { IngredientService } from '../services/ingredient-service.service';
 import { ListManagerComponent } from '../list-manager/list-manager.component';
 import { Ingredient } from '../ingredient';
+import {FormBuilder, FormGroup} from '@angular/forms';
+import {MatDialogRef} from '@angular/material';
 
 @Component({
   selector: 'app-add-new-ingredient',
@@ -14,7 +16,7 @@ export class AddNewIngredientComponent {
   @Output() submit: EventEmitter<string> = new EventEmitter();
   @Output() submitter: EventEmitter<Ingredient> = new EventEmitter();
   title: string = 'my title';
-  ingredient : Ingredient;
+  ingredient: Ingredient;
 
   constructor(      private route: ActivatedRoute,
                     private router: Router,

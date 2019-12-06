@@ -21,9 +21,6 @@ body {
  * Top navigation
  * Hide default border to remove 1px line.
  */
-.navbar-fixed-top {
-  border: 0;
-}
 
 /*
  * Sidebar
@@ -31,12 +28,12 @@ body {
 
 /* Hide for mobile, show later */
 .sidebar {
-  display: none;
+  display: block;
 }
 @media (min-width: 768px) {
   .sidebar {
     position: fixed;
-    top: 51px;
+    top: 0;
     bottom: 0;
     left: 0;
     z-index: 1000;
@@ -109,5 +106,5 @@ body {
 }
 
 .inner {
-  margin: 0 auto;
+  margin: 50px auto 0;
 }

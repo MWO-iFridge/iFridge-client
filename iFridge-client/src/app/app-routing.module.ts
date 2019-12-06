@@ -16,7 +16,7 @@ const routes: Routes = [
   { path: 'hidden', component: HiddenComponent, canActivate: [AuthGuard] },
   { path: 'ingredients', component: IngredientsListComponent },
   { path: 'profile' , component: ProfileComponent },
-  { path: 'create-recipe' , component: CreateRecipeComponent },
+  { path: 'create-recipe' , component: CreateRecipeComponent, canActivate: [AuthGuard] },
   { path: '**', redirectTo: 'dashboard' }
 ];
 

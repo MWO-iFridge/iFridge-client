@@ -1,27 +1,49 @@
 <div class="col-xs-12 col-md-8 create-recipe-css">
   <form (ngSubmit)="onSubmit()" #createRecipe="ngForm">
       <div class="form-group">
+        <div class="form-group">
           <input type="text" [(ngModel)]="recipe.recipeName" id="name" name="name">
           <p>Nazwa</p>
+        </div>
+        <div class="form-group">
           <textarea [(ngModel)]="recipe.recipeDescription" id="description" name="description" rows="4" cols="50"></textarea>
           <p>Opis</p>
+        </div>
+        <div class="form-group">
           <input type="number" [(ngModel)]="recipe.kcal" id="kcal" name="kcal">
           <p>Kcal</p>
+        </div>
+        <div class="form-group">
           <input type="number" [(ngModel)]="recipe.prepTime" id="prepTime" name="prepTime">
           <p>Czas przygotowania (min)</p>
-          <div>
-              Śniadanie
-              <input [(ngModel)]="recipe.course" type="radio" name="course" value="dinner">
-          </div>
-          <div>
-              Obiad
-              <input [(ngModel)]="recipe.course" type="radio" name="course" value="breakfast">
-          </div>
-          <div>
-              Kolacja
-              <input [(ngModel)]="recipe.course" type="radio" name="course" value="supper">
-          </div>
-        <input type="text" [(ngModel)]="recipe.foodCategory" id="foodCategory" name="name">
+        </div>
+        <div class="form-group">
+        <select
+                [(ngModel)]="recipe.course"
+                id="course"
+                name="course"
+                placeholder="Danie"
+                required #course="ngModel">
+          <option value="dinner">Śniadanie</option>
+          <option value="breakfast">Obiad</option>
+          <option value="supper">Kolacja</option>
+          <option value="dessert">Deser</option>
+        </select>
+          <p>Danie</p>
+      </div>
+        <div class="form-group">
+          <select
+            [(ngModel)]="recipe.foodCategory"
+            id="foodCategory"
+            name="foodCategory"
+            required #foodCategory="ngModel">
+            <option value="vegetarian">Wegetariańskie</option>
+            <option value="breakfast">Jarskie</option>
+            <option value="vegetable">Mięsne</option>
+            <option value="sweet">Słodkie</option>
+          </select>
+          <p>Kategoria</p>
+        </div>
         <p></p>
           <button type="submit" class="btn btn-info">Dodaj przepis</button>
       </div>
